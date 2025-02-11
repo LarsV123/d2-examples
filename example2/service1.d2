@@ -1,5 +1,8 @@
 explain: |md
-  C1: This is the second layer, a bit more detailed. Click this to go back: ...
+  # Layer 2
+  This is the second layer, a bit more detailed.
+  
+  Click the title to go back to the previous layer.
 | {
   near: top-center
   link: _
@@ -14,7 +17,9 @@ user -> internal_system: Uses
 
 frontend: Frontend
 bff: Backend for frontend
-sub_system1: Sub system 1 (proxy)
+sub_system1: Sub system 1 (proxy) {
+  link: layers.service1
+}
 sub_system2: Sub system 2
 sub_system3: Sub system 3
 
@@ -29,9 +34,5 @@ sub_system1 -> internal_system: Depends on
 sub_system2 -> external_system: Depends on
 
 layers: {
-  subsystem1: {
-    frontend: Frontend
-    bff: Backend for frontend
-    internal_system: Internal system
-  }
+  service1: @details1
 }
